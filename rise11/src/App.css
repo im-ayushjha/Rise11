@@ -1,13 +1,40 @@
+.app {
+  display: flex;
+  /* height: 100vh; */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  /* overflow: hidden; Avoid content spilling outside */
+}
+
+/* Sidebar styles */
+.app > .sidebar {
+  flex: 0 0 250px; /* Sidebar fixed at 250px width */
+  background-color: #f4f4f4;
+  padding: 5px;
+  min-width: 200px; /* Minimum usable size */
+  max-width: 300px; /* Prevent the sidebar from growing indefinitely */
+}
+
+/* Dashboard content styles */
+.app > .dashboard-content {
+  flex: 1; /* Take up remaining space */
+  background-color: #ffffff;
+  padding: 20px;
+  min-width: 0; /* Prevent unwanted shrinking */
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .app {
-    flex-direction: column;
+    flex-direction: column; /* Stack sidebar and dashboard vertically */
   }
 
   .sidebar {
-    width: 100%;
+    width: 100%; /* Full width in mobile view */
+    height: auto; /* Adjust height automatically */
   }
 
   .dashboard-content {
+    width: 100%; /* Full width in mobile view */
     padding: 10px;
   }
 }
