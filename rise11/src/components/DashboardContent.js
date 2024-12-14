@@ -3,6 +3,7 @@ import "./DashboardContent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { text } from "@fortawesome/fontawesome-svg-core";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import {
   FaDollarSign,
   FaGlobe,
@@ -154,7 +155,7 @@ function DashboardContent() {
             </h2>
             <div className="field">
               <label>Contract Value</label>
-              <div className="input-group">
+              <div className="input-group1">
                 <input type="text" placeholder="10,00,00" />
                 <span className="currency">USD</span>
               </div>
@@ -172,13 +173,28 @@ function DashboardContent() {
           {/* Place Section */}
           <div className="place card">
             <h2>
-              <FaGlobe className="icon" /> Place
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                style={{
+                  backgroundColor: "#007bff", // Blue background
+                  color: "white", // White icon color
+                  fontSize: "18px", // Adjusted font size to match the image
+                  padding: "1px", // Padding to make the circle look proportionate
+                  borderRadius: "50%", // Round shape
+                  display: "inline-block", // Keeps the element inline
+                  marginRight: "5px",
+                }}
+              />{" "}
+              Place
             </h2>
-            <input type="text" placeholder="Select the Place for proceedings" />
+            <p style={{ backgroundColor: "#e6e1e1", padding: "5px" }}>
+              Select the Place for proceedings
+            </p>
             <p>
               Is the place for the proceedings the one mentioned in the
               agreement?
             </p>
+
             <div className="options">
               <label>
                 <input type="radio" name="place" /> Yes
@@ -194,10 +210,9 @@ function DashboardContent() {
             <h2>
               <FaLanguage className="icon" /> Language
             </h2>
-            <input
-              type="text"
-              placeholder="Select the language for proceedings"
-            />
+            <p style={{ backgroundColor: "#e6e1e1", padding: "5px" }}>
+              Select the language for proceedings
+            </p>
             <p>
               Is the language for the proceedings the one mentioned in the
               agreement?

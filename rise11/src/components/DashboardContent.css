@@ -1,7 +1,8 @@
 .dashboard-content {
   /* flex: 1; */
-  /* padding: 30px; */
+  /* margin-left: 10px; */
   font-family: Arial, sans-serif;
+  /* background-color: #cec7c7; */
 }
 
 .detail {
@@ -16,6 +17,7 @@
   justify-content: space-between;
   margin-bottom: 30px;
   max-width: 100%;
+  /* background-color: #cec7c7; */
 }
 
 .progress-bar::before {
@@ -138,8 +140,9 @@ h2 {
   flex: 1;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ddd;
+  border: 1px solid white;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 .input-group .currency {
@@ -148,9 +151,29 @@ h2 {
   color: #777;
 }
 
+.input-group1 {
+  display: flex;
+  align-items: center;
+}
+
+.input-group1 input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+}
+
+.input-group1 .currency {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #777;
+}
+
 .note {
   font-size: 12px;
-  color: #f66;
+  color: orange;
 }
 
 .options {
