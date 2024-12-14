@@ -8,6 +8,7 @@ function App() {
     <div className="app">
       <Sidebar />
       <DashboardContent />
+      {/* <Clain /> */}
     </div>
   );
 }

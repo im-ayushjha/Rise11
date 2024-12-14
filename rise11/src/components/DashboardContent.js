@@ -49,7 +49,7 @@ function DashboardContent() {
             KYC
           </p>
           <div className="circle">
-            <div className="step current">
+            <div className="step completed">
               <FontAwesomeIcon icon={faCheck} />
             </div>
           </div>
@@ -64,7 +64,7 @@ function DashboardContent() {
             Parties
           </p>
           <div className="circle">
-            <div className="step">
+            <div className="step current">
               <FontAwesomeIcon icon={faCheck} />
             </div>
           </div>
@@ -115,51 +115,69 @@ function DashboardContent() {
           </div>
         </div>
       </div>
-      <div className="form-section">
-        <h2>File your Claim</h2>
-        <p>(Approx 5 Minutes)</p>
-        <div className="form-row">
-          <div className="form-group">
-            <label>Contract Value</label>
-            <input type="text" placeholder="10,00,00 USD" />
-          </div>
-          <div className="form-group">
-            <label>Claim Value</label>
-            <input type="text" placeholder="15,00,00 USD" />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label>Place</label>
-            <select>
-              <option>Select the Place for Proceedings</option>
-              <option>Place 1</option>
-              <option>Place 2</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Language</label>
-            <select>
-              <option>Select Language for Proceedings</option>
-              <option>English</option>
-              <option>Spanish</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="upload-section">
-            <label>Statement</label>
-            <div className="upload-box">
-              Write your statement or upload a PDF
+
+      <div className="container">
+        <h1>
+          File your Claim. <span>(Approx 5 Minutes)</span>
+        </h1>
+        <div className="form-section">
+          {/* Claim Value Section */}
+          <div className="claim-value card">
+            <h2>Claim Value</h2>
+            <div className="field">
+              <label>Contract Value</label>
+              <div className="input-group">
+                <input type="text" placeholder="10,00,00" />
+                <span className="currency">USD</span>
+              </div>
+            </div>
+            <div className="field">
+              <label>Claim Value</label>
+              <div className="input-group">
+                <input type="text" placeholder="15,00,00" />
+                <span className="currency">USD</span>
+              </div>
+              <p className="note">150% of Contract Value</p>
             </div>
           </div>
-          <div className="upload-section">
-            <label>Agreement under Disputes</label>
-            <div className="upload-box">Upload Agreement (Max 2MB, PDF)</div>
+
+          {/* Place Section */}
+          <div className="place card">
+            <h2>Place</h2>
+            <input type="text" placeholder="Select the Place for proceedings" />
+            <p>
+              Is the place for the proceedings the one mentioned in the
+              agreement?
+            </p>
+            <div className="options">
+              <label>
+                <input type="radio" name="place" /> Yes
+              </label>
+              <label>
+                <input type="radio" name="place" /> No
+              </label>
+            </div>
           </div>
-          <div className="upload-section">
-            <label>Additional Documentation</label>
-            <div className="upload-box">Upload Files (Max 2MB, PDF)</div>
+
+          {/* Language Section */}
+          <div className="language card">
+            <h2>Language</h2>
+            <input
+              type="text"
+              placeholder="Select the language for proceedings"
+            />
+            <p>
+              Is the language for the proceedings the one mentioned in the
+              agreement?
+            </p>
+            <div className="options">
+              <label>
+                <input type="radio" name="language" /> Yes
+              </label>
+              <label>
+                <input type="radio" name="language" /> No
+              </label>
+            </div>
           </div>
         </div>
       </div>
