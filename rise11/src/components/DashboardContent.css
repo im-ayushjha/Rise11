@@ -5,76 +5,106 @@
   /* background-color: #cec7c7; */
 }
 
-.detail {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
+/* Main progress bar container */
 .progress-bar {
   display: flex;
-  position: relative;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
-  max-width: 100%;
-  /* background-color: #cec7c7; */
-}
-
-.progress-bar::before {
-  content: "";
-  background-color: #0066ff;
-
-  position: absolute;
-  top: 81%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 2px;
-  width: 92%;
-  z-index: 1;
-  transition: 0.4s ease;
-}
-
-.progress {
-  background-color: #0066ff;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 2px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
-}
-
-.circle {
-  padding: 5px;
-  background-color: white;
-  border-radius: 50%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: 1;
 }
 
-.progress-bar .step {
-  position: relative;
-  z-index: 1;
-  padding: 5px 5px;
-  border-radius: 50%;
-  background-color: white;
-  color: white;
+/* Step wrapper */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  border: 2px solid #bbd4fb;
-  /* flex: 1; */
-  /* font-size: 14px; */
+  position: relative;
 }
 
-.progress-bar .step.completed {
-  background-color: #0066ff;
-  border: 2px solid #0066ff;
-  color: white;
+/* Circle for each step */
+.circle {
+  width: 40px;
+  height: 40px;
+  /* background-color: #e0e0e0; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #a1c9f4;
+  z-index: 1; /* Ensure circle is above the line */
 }
 
-.progress-bar .step.current {
-  border: 2px solid #0066ff;
+/* Active step circle */
+.step.active .circle {
+  background-color: #fff;
+  border: 2px solid #007bff; /* Solid blue border for active step */
+  color: #007bff;
+}
+
+/* Completed step circle */
+.step.completed .circle {
+  background-color: #007bff; /* Blue background */
+  color: #fff;
+  border: none;
+}
+
+/* Step labels */
+.label {
+  margin-top: 10px;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.label small {
+  font-weight: normal;
+  font-size: 10px;
+  color: #888;
+}
+
+/* Line connecting steps */
+.line {
+  height: 2px;
+  background-color: #a1c9f4;
+  flex: 1;
+  position: relative;
+  top: -20px; /* Moves the line vertically to align with the center of the circles */
+  z-index: 0; /* Ensure line stays below the circle */
+}
+
+/* Completed line */
+.line.completed {
+  background-color: #007bff;
+}
+
+/* Dashed line */
+.line.dashed {
+  border-top: 2px dashed #007bff;
+  background: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .progress-bar {
+    flex-wrap: wrap;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .step {
+    margin-bottom: 20px;
+  }
 }
 
 /* file your claim */
@@ -98,9 +128,9 @@ h2 {
   font-size: 18px;
   color: #333;
   margin-bottom: 10px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 /* Form section styles */

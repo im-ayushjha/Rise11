@@ -1,0 +1,24 @@
+.navbar-logo {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-logo .logo-container {
+  display: flex;
+  align-items: center;
+  /* height: 20%; */
+  /* width: 50px; */
+  gap: 0.5rem;
+}
+
+.icon {
+  color: #0066ff;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.icon > * {
+  margin-right: 1rem;
+}

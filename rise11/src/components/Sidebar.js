@@ -1,21 +1,10 @@
 import React from "react";
-import logo from "../Photos/logo.jpg";
 import image from "../Photos/Images.png";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      {/* Logo Section */}
-      <div className="sidebar-logo">
-        <div className="logo-container">
-          <img src={logo} alt="Logo" style={{ height: "40px" }} />
-
-          {/* <div className="logo-circle"></div> */}
-          <h1>Jur</h1>
-        </div>
-      </div>
-
       {/* Navigation Links */}
       <nav className="sidebar-nav">
         <ul>

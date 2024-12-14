@@ -33,111 +33,79 @@ function DashboardContent() {
   return (
     <div className="dashboard-content">
       <div className="progress-bar">
-        <div className="progress"></div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              01
-            </span>{" "}
-            Preliminary
-          </p>
-          <div className="circle">
-            <div className="step completed">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        {/* Step 1 */}
+        <div className="step completed">
+          <div className="circle">✔</div>
+          <span className="label">
+            01 Preliminary
+            <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              02
-            </span>{" "}
-            Your Details
-          </p>
-          <div className="circle">
-            <div className="step completed">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        <div className="line completed"></div>
+
+        {/* Step 2 */}
+        <div className="step completed">
+          <div className="circle">✔</div>
+          <span className="label">
+            02 Your Details
+            <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              03
+        <div className="line completed"></div>
+
+        {/* Step 3 */}
+        <div className="step completed">
+          <div className="circle">✔</div>
+          <span className="label">
+            <span>
+              <strong>03</strong>
             </span>{" "}
             KYC
-          </p>
-          <div className="circle">
-            <div className="step completed">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+            <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              04
-            </span>{" "}
-            Parties
-          </p>
-          <div className="circle">
-            <div className="step current">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        <div className="line dashed"></div>
+
+        {/* Step 4 */}
+        <div className="step active">
+          <div className="circle"></div>
+          <span className="label">
+            04 Parties <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              05
-            </span>{" "}
-            Claim
-          </p>
-          <div className="circle">
-            <div className="step">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        <div className="line"></div>
+
+        {/* Step 5 */}
+        <div className="step">
+          <div className="circle"></div>
+          <span className="label">
+            05 Claim <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              06
-            </span>{" "}
-            Review
-          </p>
-          <div className="circle">
-            <div className="step">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        <div className="line"></div>
+
+        {/* Step 6 */}
+        <div className="step">
+          <div className="circle"></div>
+          <span className="label">
+            06 Review <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
-        <div className="detail">
-          <p>
-            <span
-              style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "2" }}
-            >
-              07
-            </span>{" "}
-            Payment
-          </p>
-          <div className="circle">
-            <div className="step">
-              <FontAwesomeIcon icon={faCheck} />
-            </div>
-          </div>
+        <div className="line"></div>
+
+        {/* Step 7 */}
+        <div className="step">
+          <div className="circle"></div>
+          <span className="label">
+            07 Payment <br />
+            <small>(Approx 5 Min)</small>
+          </span>
         </div>
       </div>
 
@@ -151,7 +119,13 @@ function DashboardContent() {
           {/* Claim Value Section */}
           <div className="claim-value card">
             <h2>
-              <FaDollarSign className="icon" /> Claim Value
+              <FaDollarSign
+                className="icon"
+                style={{
+                  marginRight: "5px",
+                }}
+              />{" "}
+              Claim Value
             </h2>
             <div className="field">
               <label>Contract Value</label>
@@ -182,7 +156,7 @@ function DashboardContent() {
                   padding: "1px", // Padding to make the circle look proportionate
                   borderRadius: "50%", // Round shape
                   display: "inline-block", // Keeps the element inline
-                  marginRight: "5px",
+                  marginRight: "1rem",
                 }}
               />{" "}
               Place
@@ -215,7 +189,14 @@ function DashboardContent() {
           {/* Language Section */}
           <div className="language card">
             <h2>
-              <FaLanguage className="icon" /> Language
+              <FaLanguage
+                className="icon"
+                style={{
+                  marginRight: "1rem",
+                  fontSize: "28px",
+                }}
+              />{" "}
+              Language
             </h2>
             <div className="input-group">
               <input

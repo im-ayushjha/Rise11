@@ -1,40 +1,61 @@
 .app {
-  display: flex;
-  /* height: 100vh; */
-  flex-wrap: nowrap; /* Prevent wrapping */
-  /* overflow: hidden; Avoid content spilling outside */
+  display: grid;
+  grid-template-rows: auto 1fr; /* Navbar takes the first row, and the rest fills the screen */
+  grid-template-columns: 250px 1fr; /* Sidebar (250px fixed) and dashboard (remaining space) */
+  grid-template-areas:
+    "navbar navbar" /* Navbar spans both columns */
+    "sidebar dashboard"; /* Sidebar and dashboard split horizontally */
+  height: 100vh;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Navbar styles */
+.app > .navbar {
+  grid-area: navbar;
+  background-color: white; /* Blue background */
+  /* padding: 15px; */
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Sidebar styles */
 .app > .sidebar {
-  flex: 0 0 250px; /* Sidebar fixed at 250px width */
+  grid-area: sidebar;
   background-color: #f4f4f4;
-  padding: 5px;
-  min-width: 200px; /* Minimum usable size */
-  max-width: 300px; /* Prevent the sidebar from growing indefinitely */
+  padding: 10px;
+  overflow-y: auto;
+  min-width: 200px;
+  max-width: 300px;
+  border-right: 1px solid #ddd; /* Separate sidebar visually */
 }
 
 /* Dashboard content styles */
 .app > .dashboard-content {
-  flex: 1; /* Take up remaining space */
+  grid-area: dashboard;
   background-color: #ffffff;
   padding: 20px;
-  min-width: 0; /* Prevent unwanted shrinking */
+  overflow-y: auto; /* Scrollable for dashboard content */
 }
 
-/* Responsive design */
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .app {
-    flex-direction: column; /* Stack sidebar and dashboard vertically */
+    grid-template-rows: auto auto 1fr; /* Stack all components vertically */
+    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-areas:
+      "navbar"
+      "sidebar"
+      "dashboard"; /* Navbar, then Sidebar, then Dashboard */
   }
 
   .sidebar {
-    width: 100%; /* Full width in mobile view */
-    height: auto; /* Adjust height automatically */
+    width: 100%; /* Full width for sidebar */
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd; /* Visual separation */
   }
 
   .dashboard-content {
-    width: 100%; /* Full width in mobile view */
     padding: 10px;
   }
 }
