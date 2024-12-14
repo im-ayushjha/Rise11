@@ -11,26 +11,27 @@
   align-items: center;
   justify-content: space-between;
   background-color: #f9f9f9;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+  flex-wrap: nowrap; /* Allow wrapping when screen is small */
+  overflow-x: auto; /* Prevent horizontal overflow issues */
+  /* gap: 10px; */
 }
 
-/* Step wrapper */
 .step {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
+  min-width: 70px; /* Prevent circles from shrinking too much */
 }
 
-/* Circle for each step */
 .circle {
   width: 40px;
   height: 40px;
-  /* background-color: #e0e0e0; */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -39,24 +40,27 @@
   font-size: 16px;
   font-weight: bold;
   border: 2px solid #a1c9f4;
-  z-index: 1; /* Ensure circle is above the line */
+  margin-top: 1rem;
+  z-index: 1;
+  flex-shrink: 0; /* Prevent shrinking when zooming */
 }
 
-/* Active step circle */
 .step.active .circle {
   background-color: #fff;
-  border: 2px solid #007bff; /* Solid blue border for active step */
+  border: 2px solid #007bff;
   color: #007bff;
 }
 
-/* Completed step circle */
+.hide {
+  opacity: 0.5;
+}
+
 .step.completed .circle {
-  background-color: #007bff; /* Blue background */
+  background-color: #007bff;
   color: #fff;
   border: none;
 }
 
-/* Step labels */
 .label {
   margin-top: 10px;
   color: #555;
@@ -71,22 +75,21 @@
   color: #888;
 }
 
-/* Line connecting steps */
 .line {
   height: 2px;
   background-color: #a1c9f4;
-  flex: 1;
+  flex-grow: 0; /* Prevent the line from growing */
+  width: 50px; /* Set a fixed width for the line */
+  min-width: 30px; /* Ensure a minimum width */
   position: relative;
-  top: -20px; /* Moves the line vertically to align with the center of the circles */
-  z-index: 0; /* Ensure line stays below the circle */
+  top: -20px;
+  z-index: 0;
 }
 
-/* Completed line */
 .line.completed {
   background-color: #007bff;
 }
 
-/* Dashed line */
 .line.dashed {
   border-top: 2px dashed #007bff;
   background: none;
@@ -95,15 +98,18 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .progress-bar {
-    flex-wrap: wrap;
-  }
-
-  .line {
-    display: none;
+    padding: 10px;
+    gap: 20px;
   }
 
   .step {
+    width: 100%; /* Full width for each step */
     margin-bottom: 20px;
+  }
+
+  .line {
+    display: none; /* Hide lines on smaller screens */
+    width: 70px;
   }
 }
 

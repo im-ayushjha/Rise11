@@ -36,11 +36,20 @@ function DashboardContent() {
         {/* Step 1 */}
         <div className="step completed">
           <div className="circle">✔</div>
+          {/* <div> */}
           <span className="label">
-            01 Preliminary
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              01
+            </span>{" "}
+            Preliminary
             <br />
-            <small>(Approx 5 Min)</small>
+            <small style={{ visibility: "hidden" }}>(Approx 5 Min)</small>
           </span>
+          {/* </div> */}
         </div>
         <div className="line completed"></div>
 
@@ -48,9 +57,16 @@ function DashboardContent() {
         <div className="step completed">
           <div className="circle">✔</div>
           <span className="label">
-            02 Your Details
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              02
+            </span>{" "}
+            Your Details
             <br />
-            <small>(Approx 5 Min)</small>
+            <small style={{ visibility: "hidden" }}>(Approx 5 Min)</small>
           </span>
         </div>
         <div className="line completed"></div>
@@ -59,12 +75,16 @@ function DashboardContent() {
         <div className="step completed">
           <div className="circle">✔</div>
           <span className="label">
-            <span>
-              <strong>03</strong>
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              03
             </span>{" "}
             KYC
             <br />
-            <small>(Approx 5 Min)</small>
+            <small style={{ visibility: "hidden" }}>(Approx 5 Min)</small>
           </span>
         </div>
         <div className="line dashed"></div>
@@ -73,7 +93,14 @@ function DashboardContent() {
         <div className="step active">
           <div className="circle"></div>
           <span className="label">
-            04 Parties <br />
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              04
+            </span>{" "}
+            Parties <br />
             <small>(Approx 5 Min)</small>
           </span>
         </div>
@@ -82,8 +109,15 @@ function DashboardContent() {
         {/* Step 5 */}
         <div className="step">
           <div className="circle"></div>
-          <span className="label">
-            05 Claim <br />
+          <span className="label hide">
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              05
+            </span>{" "}
+            Claim <br />
             <small>(Approx 5 Min)</small>
           </span>
         </div>
@@ -92,8 +126,15 @@ function DashboardContent() {
         {/* Step 6 */}
         <div className="step">
           <div className="circle"></div>
-          <span className="label">
-            06 Review <br />
+          <span className="label hide">
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              06
+            </span>{" "}
+            Review <br />
             <small>(Approx 5 Min)</small>
           </span>
         </div>
@@ -102,8 +143,15 @@ function DashboardContent() {
         {/* Step 7 */}
         <div className="step">
           <div className="circle"></div>
-          <span className="label">
-            07 Payment <br />
+          <span className="label hide">
+            <span
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              07
+            </span>{" "}
+            Payment <br />
             <small>(Approx 5 Min)</small>
           </span>
         </div>

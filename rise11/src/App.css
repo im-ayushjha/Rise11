@@ -5,15 +5,13 @@
   grid-template-areas:
     "navbar navbar" /* Navbar spans both columns */
     "sidebar dashboard"; /* Sidebar and dashboard split horizontally */
-  height: 100vh;
-  overflow: hidden; /* Prevent content overflow */
+  min-height: 100vh; /* Minimum height of the app is the viewport height */
 }
 
 /* Navbar styles */
 .app > .navbar {
   grid-area: navbar;
   background-color: white; /* Blue background */
-  /* padding: 15px; */
   text-align: center;
   font-weight: bold;
 }
@@ -23,10 +21,10 @@
   grid-area: sidebar;
   background-color: #f4f4f4;
   padding: 10px;
-  overflow-y: auto;
   min-width: 200px;
   max-width: 300px;
-  border-right: 1px solid #ddd; /* Separate sidebar visually */
+  /* Removed overflow-y: auto */
+  height: auto; /* Let the sidebar grow with the content */
 }
 
 /* Dashboard content styles */
@@ -34,7 +32,18 @@
   grid-area: dashboard;
   background-color: #ffffff;
   padding: 20px;
-  overflow-y: auto; /* Scrollable for dashboard content */
+  height: auto; /* Let the dashboard grow with the content */
+}
+
+/* Allow the entire page to scroll */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Ensure the whole page scrolls */
+}
+
+html {
+  height: 100%; /* Ensure full height for scrolling */
 }
 
 /* Responsive design for smaller screens */
