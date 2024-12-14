@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DashboardContent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { text } from "@fortawesome/fontawesome-svg-core";
+import {
+  FaDollarSign,
+  FaGlobe,
+  FaLanguage,
+  FaFilePdf,
+  FaPlus,
+  FaPlusCircle,
+  FaUpload,
+} from "react-icons/fa";
 
 function DashboardContent() {
+  const [statementFile, setStatementFile] = useState(null);
+  const [contractFile, setContractFile] = useState(null);
+  const [arbitrationFile, setArbitrationFile] = useState(null);
+  const [additionalDocs, setAdditionalDocs] = useState([]);
+
+  const handleFileUpload = (e, type) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (type === "statement") setStatementFile(file.name);
+      else if (type === "contract") setContractFile(file.name);
+      else if (type === "arbitration") setArbitrationFile(file.name);
+      else setAdditionalDocs((prevDocs) => [...prevDocs, file.name]);
+    }
+  };
+
   return (
     <div className="dashboard-content">
       <div className="progress-bar">
@@ -116,6 +140,8 @@ function DashboardContent() {
         </div>
       </div>
 
+      {/* ------------------------------------------------------------------------------*/}
+
       <div className="container">
         <h1>
           File your Claim. <span>(Approx 5 Minutes)</span>
@@ -123,7 +149,9 @@ function DashboardContent() {
         <div className="form-section">
           {/* Claim Value Section */}
           <div className="claim-value card">
-            <h2>Claim Value</h2>
+            <h2>
+              <FaDollarSign className="icon" /> Claim Value
+            </h2>
             <div className="field">
               <label>Contract Value</label>
               <div className="input-group">
@@ -143,7 +171,9 @@ function DashboardContent() {
 
           {/* Place Section */}
           <div className="place card">
-            <h2>Place</h2>
+            <h2>
+              <FaGlobe className="icon" /> Place
+            </h2>
             <input type="text" placeholder="Select the Place for proceedings" />
             <p>
               Is the place for the proceedings the one mentioned in the
@@ -161,7 +191,9 @@ function DashboardContent() {
 
           {/* Language Section */}
           <div className="language card">
-            <h2>Language</h2>
+            <h2>
+              <FaLanguage className="icon" /> Language
+            </h2>
             <input
               type="text"
               placeholder="Select the language for proceedings"
@@ -177,6 +209,108 @@ function DashboardContent() {
               <label>
                 <input type="radio" name="language" /> No
               </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ------------------------------------------------------------------ */}
+
+      <div className="bottom">
+        <div className="bottom-section-container">
+          {/* Statement Section */}
+          <div className="section statement-section">
+            <div className="icon-header">
+              <FaFilePdf className="section-icon" />
+              <h3>Statement</h3>
+            </div>
+            <div className="upload-container">
+              <div className="upload-box">
+                <label className="upload-label1">
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={(e) => handleFileUpload(e, "statement")}
+                  />
+                  {statementFile ? (
+                    <p>{statementFile}</p>
+                  ) : (
+                    <>
+                      <p>
+                        Write your Statement Here{" "}
+                        <span style={{ margin: 50, color: "black" }}>or</span>
+                      </p>
+                      <p>
+                        <FaUpload className="upload-icon" /> Upload a PDF
+                      </p>
+                    </>
+                  )}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Agreement under Disputes Section */}
+          <div className="section">
+            <div className="icon-header">
+              <FaFilePdf className="section-icon" />
+              <h3>Agreement under Disputes</h3>
+            </div>
+            <div className="upload-container">
+              <div className="upload-box">
+                <label className="upload-label">
+                  <FaUpload className="upload-icon" />
+                  <p>{contractFile || "Upload the Contract"}</p>
+                  <span>Max 2MB, PDF</span>
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={(e) => handleFileUpload(e, "contract")}
+                  />
+                </label>
+              </div>
+              <div className="upload-box">
+                <label className="upload-label">
+                  <FaUpload className="upload-icon" />
+                  <p>{arbitrationFile || "Arbitration Agreement"}</p>
+                  <span>Max 2MB, PDF</span>
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={(e) => handleFileUpload(e, "arbitration")}
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Documentation Section */}
+          <div className="section">
+            <div className="icon-header">
+              <FaFilePdf className="section-icon" />
+              <h3>Additional Documentation</h3>
+            </div>
+            <div className="upload-container">
+              {additionalDocs.map((doc, index) => (
+                <div key={index} className="uploaded-doc">
+                  {doc}
+                </div>
+              ))}
+              <div className="upload-box">
+                <label className="upload-label">
+                  <FaUpload className="upload-icon" />
+                  <p>Upload the Contract</p>
+                  <span>Max 2MB, PDF</span>
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={(e) => handleFileUpload(e, "additional")}
+                  />
+                </label>
+              </div>
+              <button className="add-more-btn">
+                <FaPlusCircle />
+              </button>
             </div>
           </div>
         </div>
