@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../Photos/logo.jpg";
-import image from "../Photos/images.png";
+import image from "../Photos/Images.png";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -9,7 +9,8 @@ const Sidebar = () => {
       {/* Logo Section */}
       <div className="sidebar-logo">
         <div className="logo-container">
-          {/* <img src={logo} alt="Logo" /> */}
+          <img src={logo} alt="Logo" style={{ height: "40px" }} />
+
           {/* <div className="logo-circle"></div> */}
           <h1>Jur</h1>
         </div>
@@ -58,12 +59,12 @@ const Sidebar = () => {
       </nav>
 
       {/* Promo Section */}
-      <div className="sidebar-promo">
-        <div className="promo-box">
-          <img src={image} alt="Justice" className="mx-auto mb-4" />
-          <p>Get Justice on every Claim</p>
-        </div>
-      </div>
+      {/* <div className="sidebar-promo"> */}
+      {/* <div className="promo-box"> */}
+      {/* <p>Get Justice on every Claim</p> */}
+      <img src={image} alt="Justice" className="img-change" />
+      {/* </div> */}
+      {/* </div> */}
     </div>
   );
 };

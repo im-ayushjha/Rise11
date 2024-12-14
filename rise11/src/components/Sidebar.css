@@ -2,7 +2,7 @@
 
 .sidebar {
   width: 14rem; /* equivalent to w-56 */
-  height: 100vh; /* equivalent to h-screen */
+  height: 100%; /* equivalent to h-screen */
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -23,6 +23,8 @@
 .sidebar-logo .logo-container {
   display: flex;
   align-items: center;
+  /* height: 20%; */
+  /* width: 50px; */
   gap: 0.5rem;
 }
 
@@ -75,11 +77,17 @@
   background-color: #eff6ff;
 }
 
-.sidebar-promo .promo-box {
+/* .sidebar-promo .promo-box {
   background-color: #dbeafe;
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
+} */
+
+.img-change {
+  padding: 2%; /* Keeps a little padding */
+  height: 350px;
+  border-radius: 20px;
 }
 
 .sidebar-promo img {

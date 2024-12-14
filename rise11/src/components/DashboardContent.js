@@ -187,10 +187,17 @@ function DashboardContent() {
               />{" "}
               Place
             </h2>
-            <p style={{ backgroundColor: "#e6e1e1", padding: "5px" }}>
-              Select the Place for proceedings
-            </p>
-            <p>
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Select the Place for proceedings"
+              />
+            </div>
+            <p
+              style={{
+                fontweight: "bold",
+              }}
+            >
               Is the place for the proceedings the one mentioned in the
               agreement?
             </p>
@@ -210,10 +217,17 @@ function DashboardContent() {
             <h2>
               <FaLanguage className="icon" /> Language
             </h2>
-            <p style={{ backgroundColor: "#e6e1e1", padding: "5px" }}>
-              Select the language for proceedings
-            </p>
-            <p>
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Select the language for proceedings"
+              />
+            </div>
+            <p
+              style={{
+                fontweight: "bold",
+              }}
+            >
               Is the language for the proceedings the one mentioned in the
               agreement?
             </p>
