@@ -24,7 +24,7 @@
   min-width: 200px;
   max-width: 300px;
   /* Removed overflow-y: auto */
-  height: auto; /* Let the sidebar grow with the content */
+  height: 100%; /* Let the sidebar grow with the content */
 }
 
 /* Dashboard content styles */
